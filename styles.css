@@ -8,14 +8,16 @@ body {
   h1 {
     text-align: center;
     padding: 20px;
+    background-color:deeppink;
+    color: black;
   }
-  
+
   table {
     width: 80%;
     margin: 0 auto;
     border-collapse: collapse;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgb(252, 167, 255);
+    box-shadow: 0 0 10px black;
   }
   
   table th, table td {
@@ -24,8 +26,9 @@ body {
   }
   
   table th {
-    background-color: #333;
+    background-color: deeppink;
     color: white;
+    color: black;
   }
   
   table tr:nth-child(even) {
@@ -34,6 +37,9 @@ body {
   
   a {
     text-decoration: none;
-    color: #007bff;
+    color: #000000;
   }
   
+  a:hover {
+    color:red;
+  }
