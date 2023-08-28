@@ -1,12 +1,52 @@
-<html>
-  <head>
-  </head>
-    <body>
-      
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="vis.tec.css">
+    <title>Visita técnica</title>
+</head>
+<body>
+    <div class="relatorio">
+        <img class="logo" src="logo.ifro.png" alt="ifro">                                                      
+        <h1>Relatório da Visita Técnica </h1>
+        <h1>IFRO - Campus Colorado (16/08/2023)</h1>
+    </div>
+        <div class="container">
+            <h2 class="title">  Na visita técnica em que fomos, nos foi apresentado diversas coisas, entre elas estão a camera escura, as produções da escola,
+                e uma palestra sobre artes, além de projetos desenvolvidos pelo IFRO - Campus Colorado.<br>
+                Na camera escura discutimos sobre formas de tirar fotos e podermos melhora-las, logo em seguida fomos explorar mais o Campus,
+                tirando fotos do que nos chamavam a atenção, que ao meu ver foi uma atividade bem divertida.<br>
+                Durante a atividade de tirarmos fotos pelo campus podemos observar animais exoticos e para abates (onde eram abatidos animais para o consumo dos alunos), 
+                essa atividade foi interessante pois, pude conhecer certos animais de perto.<br>
+                Nos foi apresentado outra palestra sobre projetos em que o Campus desenvolveu (Projeto Judô), 
+                que consistia no professor apresentar tecnicas na internet em forma de videos, já que era mais atrativo pros telespectadores, tendo a idéia a partir de um problema,
+                onde era dificil conseguir achar as tecnicas e muitas das vezes quando achava estava errado ou não era atrativo pros telespectadores.
+            </h2><br><br>
 
-      Aqui ficará o texto de relatório da visita técnica.<br>
+            <h1>Galeria de fotos</h1>
 
-      <h1>Galeria de fotos</h1><br>
-      
-    </body>
+
+                <div class="gallery">
+                    <div class="image-container">
+                        <img class="gallery-image" src="1.png" alt="Imagem 1">
+                        <img class="gallery-image" src="2.png" alt="Imagem 2">
+                        <img class="gallery-image" src="3.png" alt="Imagem 3">
+                        <img class="gallery-image" src="4.png" alt="Imagem 4">
+                        <img class="gallery-image" src="5.png" alt="Imagem 5">
+                        <img class="gallery-image" src="6.png" alt="Imagem 6">
+                        <img class="gallery-image" src="7.png" alt="Imagem 7">
+                        <img class="gallery-image" src="8.png" alt="Imagem 8">
+                        <img class="gallery-image" src="9.png" alt="Imagem 9">
+                        <img class="gallery-image" src="10.png" alt="Imagem 10">
+                    </div>
+                </div>
+        </div>
+
+    <div class="modal" id="imageModal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImage">
+    </div>
+    <script src="vis.tec.js"></script>
+</body>
 </html>
