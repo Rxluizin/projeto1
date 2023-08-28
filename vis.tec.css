@@ -38,8 +38,8 @@ body {
   }
 
   .logo {
-    width: 150px;
-    height: 100px;
+    width: 80px;
+    height: 150px;
     object-fit: cover;
     cursor: pointer;
     margin: 0 10px;
