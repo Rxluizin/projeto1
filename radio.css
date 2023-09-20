@@ -1,1 +1,75 @@
+/* Reset de estilos para remover margens e preenchimentos padrão */
+body, ul, li, h1, h2, audio {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilo para o título da página */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para a lista de músicas */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Estilo para cada item da lista de músicas */
+li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para os títulos das músicas */
+h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para os controles de áudio */
+audio {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 0 auto;
+    outline: none;
+    background-color: #eee;
+    border: 1px solid #ccc;
+}
+
+/* Estilizar os botões de controle de áudio */
+audio::-webkit-media-controls {
+    background-color: #eee;
+}
+
+/* Estilizar a barra de progresso de áudio */
+audio::-webkit-media-controls-progress-bar {
+    background-color: #007bff;
+}
+
+/* Estilizar o indicador de tempo de áudio */
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-current-time-display {
+    color: #007bff;
+}
+
+/* Estilizar o botão de play/pause */
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-pause-button {
+    background-color: #007bff;
+    color: #fff;
+}
 
