@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="radio.css">
     <title>Minha Playlist de Músicas</title>
+    <link rel="stylesheet" type="text/css" href="radio.css">
 </head>
 <body>
     <h1>Minha Playlist de Músicas</h1>
     
-    <ul>
-        <li>
+    <div class="playlist-container">
+        <ul id="playlist">
+            <li>
             <h2>Música 1</h2>
             <audio controls>
                 <source src="musicas/Dia_Azul.mp3" type="audio/mpeg">                
@@ -70,7 +71,14 @@
                 <source src="musicas/diamantes.mp3" type="audio/mpeg">                
             </audio>
         </li>
-    </ul>
+        </ul>
+    </div>
+
+    <div class="controls">
+        <button id="prev-button">Anterior</button>
+        <button id="next-button">Próxima</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
