@@ -1,14 +1,14 @@
 const playlist = [
     {
         title: "Bohemian Rhapsody",
-        artist: "Queen",
+        artist: "Sidoka",
         album: "A Night at the Opera",
         audioSrc: "bohemian-rhapsody.mp3",
         albumImage: "bohemian-rhapsody.jpg"
     },
     {
         title: "Imagine",
-        artist: "John Lennon",
+        artist: "Sidoka",
         album: "Imagine",
         audioSrc: "imagine.mp3",
         albumImage: "imagine.jpg"
