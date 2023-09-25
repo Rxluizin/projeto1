@@ -1,90 +1,69 @@
-const playlist = [
-    {
-        title: "N me sinto mais mal",
-        artist: "Sidoka",
-        album: "A Night at the Opera",
-        audioSrc: "1.mp3",
-        albumImage: "bohemian-rhapsody.jpg"
-    },
-    {
-        title: "qq se ta ensinuando",
-        artist: "Sidoka",
-        album: "Imagine",
-        audioSrc: "2.mp3",
-        albumImage: "imagine.jpg"
-    },
-    // Adicione mais músicas à playlist
+const audio = document.getElementById('audio');
+const playButton = document.getElementById('play');
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next');
+
+const musicas = [
+    'musica1.mp3',
+    'musica2.mp3',
+    'musica3.mp3',
+    'musica4.mp3',
+    'musica5.mp3',
+    'musica6.mp3',
+    'musica7.mp3',
+    'musica8.mp3',
+    'musica9.mp3',
+    'musica10.mp3'
 ];
+let musicaAtual = 0;
 
-let currentSongIndex = 0;
-const audio = document.getElementById("audio");
-const audioSource = document.getElementById("audio-source");
-const albumImage = document.getElementById("album-image");
-const songTitle = document.getElementById("song-title");
-const artist = document.getElementById("artist");
-const album = document.getElementById("album");
-
-function displayPlaylist() {
-    const playlistElement = document.getElementById("playlist");
-    playlistElement.innerHTML = "";
-
-    for (let i = 0; i < playlist.length; i++) {
-        const song = playlist[i];
-        const songElement = document.createElement("div");
-        songElement.classList.add("song");
-        songElement.textContent = `${i + 1}. ${song.title} - ${song.artist}`;
-        songElement.addEventListener("click", () => playSong(i));
-        playlistElement.appendChild(songElement);
-    }
-}
-
-function playSong(index) {
-    currentSongIndex = index;
-    const song = playlist[index];
-    audioSource.src = song.audioSrc;
-    albumImage.src = song.albumImage;
-    songTitle.textContent = song.title;
-    artist.textContent = `Artista: ${song.artist}`;
-    album.textContent = `Álbum: ${song.album}`;
-    audio.load();
+function tocarMusica() {
+    audio.src = musicas[musicaAtual];
     audio.play();
+    esconderTodasMusicas();
 }
 
-function searchSong() {
-    const searchInput = document.getElementById("search").value.toLowerCase();
-
-    for (let i = 0; i < playlist.length; i++) {
-        const song = playlist[i];
-        const title = song.title.toLowerCase();
-
-        if (title.includes(searchInput)) {
-            playSong(i);
-            return;
+function esconderTodasMusicas() {
+    for (let i = 0; i < musicas.length; i++) {
+        if (i === musicaAtual) {
+            document.getElementById(`musica${i}`).hidden = false;
+        } else {
+            document.getElementById(`musica${i}`).hidden = true;
         }
     }
-
-    alert("Música não encontrada na playlist.");
 }
 
-function playPause() {
+playButton.addEventListener('click', () => {
     if (audio.paused) {
         audio.play();
+        playButton.innerText = 'Pausar';
     } else {
         audio.pause();
+        playButton.innerText = 'Play';
     }
+});
+
+prevButton.addEventListener('click', () => {
+    if (musicaAtual > 0) {
+        musicaAtual--;
+        tocarMusica();
+    }
+});
+
+nextButton.addEventListener('click', () => {
+    if (musicaAtual < musicas.length - 1) {
+        musicaAtual++;
+        tocarMusica();
+    }
+});
+
+// Adicione elementos de áudio para cada música
+for (let i = 0; i < musicas.length; i++) {
+    const audioElement = document.createElement('audio');
+    audioElement.src = musicas[i];
+    audioElement.id = `musica${i}`;
+    audioElement.hidden = true;
+    document.body.appendChild(audioElement);
 }
 
-function previousSong() {
-    if (currentSongIndex > 0) {
-        playSong(currentSongIndex - 1);
-    }
-}
-
-function nextSong() {
-    if (currentSongIndex < playlist.length - 1) {
-        playSong(currentSongIndex + 1);
-    }
-}
-
-// Exibir a lista de reprodução inicialmente
-displayPlaylist();
+tocarMusica();
