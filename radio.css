@@ -1,40 +1,30 @@
 body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: pink;
     font-family: Arial, sans-serif;
+}
+
+.player {
     text-align: center;
 }
 
-h1 {
-    color: #333;
+audio {
+    max-width: 400px;
+    margin-bottom: 20px;
 }
 
-#search {
-    padding: 5px;
-    margin: 10px;
-}
-
-#player {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#song-details {
-    margin: 20px;
-}
-
-#album-image {
-    max-width: 200px;
-    border: 2px solid #333;
-    border-radius: 10px;
-}
-
-#controls {
-    margin: 20px;
-    background-color: rgb(255, 7, 119);
-    color: black    
-}
-
-button {
+.controls button {
+    background-color: black;
+    color: pink;
+    border: none;
     padding: 10px 20px;
-    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background-color: pink;
+    color: black;
 }
