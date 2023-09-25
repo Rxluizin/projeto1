@@ -1,16 +1,8 @@
 body {
-    background-image: url('logo/logo.jpg'); /* Caminho para a imagem de fundo */
+    background-image: url('rosachoque/nuvelina.jpg'); /* Caminho para a imagem de fundo */
     background-size: cover; /* Redimensiona a imagem para cobrir todo o fundo */
     color: pink;
     text-align: center;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    display: grid;
-    place-items: center;
-    height: 100vh;
-    background-color: pink;
     font-family: Arial, sans-serif;
 }
 
