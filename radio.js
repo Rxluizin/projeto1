@@ -1,39 +1,90 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const playlist = document.querySelectorAll(".music");
-    const prevButton = document.getElementById("prev-button");
-    const nextButton = document.getElementById("next-button");
-    const searchInput = document.getElementById("search");
-    let currentTrack = 0;
+const playlist = [
+    {
+        title: "Bohemian Rhapsody",
+        artist: "Queen",
+        album: "A Night at the Opera",
+        audioSrc: "bohemian-rhapsody.mp3",
+        albumImage: "bohemian-rhapsody.jpg"
+    },
+    {
+        title: "Imagine",
+        artist: "John Lennon",
+        album: "Imagine",
+        audioSrc: "imagine.mp3",
+        albumImage: "imagine.jpg"
+    },
+    // Adicione mais músicas à playlist
+];
 
-    function playTrack(trackIndex) {
-        for (let i = 0; i < playlist.length; i++) {
-            playlist[i].querySelector("audio").pause();
-            playlist[i].querySelector("audio").currentTime = 0;
+let currentSongIndex = 0;
+const audio = document.getElementById("audio");
+const audioSource = document.getElementById("audio-source");
+const albumImage = document.getElementById("album-image");
+const songTitle = document.getElementById("song-title");
+const artist = document.getElementById("artist");
+const album = document.getElementById("album");
+
+function displayPlaylist() {
+    const playlistElement = document.getElementById("playlist");
+    playlistElement.innerHTML = "";
+
+    for (let i = 0; i < playlist.length; i++) {
+        const song = playlist[i];
+        const songElement = document.createElement("div");
+        songElement.classList.add("song");
+        songElement.textContent = `${i + 1}. ${song.title} - ${song.artist}`;
+        songElement.addEventListener("click", () => playSong(i));
+        playlistElement.appendChild(songElement);
+    }
+}
+
+function playSong(index) {
+    currentSongIndex = index;
+    const song = playlist[index];
+    audioSource.src = song.audioSrc;
+    albumImage.src = song.albumImage;
+    songTitle.textContent = song.title;
+    artist.textContent = `Artista: ${song.artist}`;
+    album.textContent = `Álbum: ${song.album}`;
+    audio.load();
+    audio.play();
+}
+
+function searchSong() {
+    const searchInput = document.getElementById("search").value.toLowerCase();
+
+    for (let i = 0; i < playlist.length; i++) {
+        const song = playlist[i];
+        const title = song.title.toLowerCase();
+
+        if (title.includes(searchInput)) {
+            playSong(i);
+            return;
         }
-        playlist[currentTrack].querySelector("audio").play();
     }
 
-    playTrack(currentTrack);
+    alert("Música não encontrada na playlist.");
+}
 
-    prevButton.addEventListener("click", function () {
-        currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
-        playTrack(currentTrack);
-    });
+function playPause() {
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
+}
 
-    nextButton.addEventListener("click", function () {
-        currentTrack = (currentTrack + 1) % playlist.length;
-        playTrack(currentTrack);
-    });
+function previousSong() {
+    if (currentSongIndex > 0) {
+        playSong(currentSongIndex - 1);
+    }
+}
 
-    searchInput.addEventListener("input", function () {
-        const searchTerm = searchInput.value.toLowerCase();
-        for (let i = 0; i < playlist.length; i++) {
-            const musicTitle = playlist[i].querySelector("h2").textContent.toLowerCase();
-            if (musicTitle.includes(searchTerm)) {
-                playlist[i].style.display = "block";
-            } else {
-                playlist[i].style.display = "none";
-            }
-        }
-    });
-});
+function nextSong() {
+    if (currentSongIndex < playlist.length - 1) {
+        playSong(currentSongIndex + 1);
+    }
+}
+
+// Exibir a lista de reprodução inicialmente
+displayPlaylist();
