@@ -18,15 +18,6 @@ body {
     animation: neonGlow 2s linear infinite alternate;
 }
 
-@keyframes neonGlow {
-    0% {
-        filter: brightness(1.5) drop-shadow(0 0 10px cyan);
-    }
-    100% {
-        filter: brightness(1) drop-shadow(0 0 5px cyan);
-    }
-}
-
 .player-container {
     margin: 50px auto;
     max-width: 400px;
@@ -37,12 +28,6 @@ body {
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
-}
-
-.audio-info {
-    color: rgb(247, 0, 255);
-    font-size: 18px;
-    margin-bottom: 10px;
 }
 
 video {
@@ -67,7 +52,7 @@ audio {
 }
 
 button {
-    background-color: rgba(0, 128, 0, 0.7);
+    background-color: rgb(255, 0, 191);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -79,18 +64,18 @@ button {
 }
 
 button:hover {
-    background-color: rgba(0, 128, 0, 1);
-    box-shadow: 0px 0px 10px rgba(0, 128, 0, 0.7);
+    background-color: rgb(162, 0, 255);
+    box-shadow: 0px 0px 10px rgb(162, 0, 255);
     color: white;
 }
 
 #play-pause-button {
-    background-color: orange;
+    background-color: rgb(255, 0, 191);
     color: black;
 }
 
 #play-pause-button:hover {
-    background-color: darkorange;
+    background-color: rgb(162, 0, 255);
 }
 
 .neon-glow {
