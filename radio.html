@@ -80,3 +80,60 @@
     <script src="radio.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Playlist de Músicas</title>
+</head>
+<body>
+    <h1>Playlist de Músicas</h1>
+
+    <input type="text" id="search" placeholder="Pesquisar música">
+    <button onclick="searchSong()">Pesquisar</button>
+
+    <div id="player">
+        <div id="song-details">
+            <img id="album-image" src="" alt="Capa do Álbum">
+            <h2 id="song-title">Nome da Música</h2>
+            <p id="artist">Artista</p>
+            <p id="album">Álbum</p>
+        </div>
+        <audio id="audio" controls>
+            <source id="audio-source" src="" type="audio/mpeg">
+            Seu navegador não suporta áudio.
+        </audio>
+    </div>
+
+    <div id="playlist">
+        <!-- Aqui serão exibidas as músicas -->
+    </div>
+
+    <div id="controls">
+        <button onclick="playPause()">Reproduzir/Pausar</button>
+        <button onclick="previousSong()">Anterior</button>
+        <button onclick="nextSong()">Próxima</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
