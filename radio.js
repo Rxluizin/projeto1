@@ -1,16 +1,16 @@
 const playlist = [
     {
-        title: "Bohemian Rhapsody",
+        title: "N me sinto mais mal",
         artist: "Sidoka",
         album: "A Night at the Opera",
-        audioSrc: "bohemian-rhapsody.mp3",
+        audioSrc: "1.mp3",
         albumImage: "bohemian-rhapsody.jpg"
     },
     {
-        title: "Imagine",
+        title: "qq se ta ensinuando",
         artist: "Sidoka",
         album: "Imagine",
-        audioSrc: "imagine.mp3",
+        audioSrc: "2.mp3",
         albumImage: "imagine.jpg"
     },
     // Adicione mais músicas à playlist
