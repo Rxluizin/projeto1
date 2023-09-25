@@ -1,9 +1,9 @@
 const audio = document.getElementById('audio');
-const playButton = document.getElementById('play');
-const prevButton = document.getElementById('prev');
-const nextButton = document.getElementById('next');
+const playPauseButton = document.getElementById('play-pause-button');
+const prevButton = document.getElementById('prev-button');
+const nextButton = document.getElementById('next-button');
 
-const musicas = [
+const songs = [
     'musicas/1.mp3',
     'musicas/2.mp3',
     'musicas/3.mp3',
@@ -13,57 +13,39 @@ const musicas = [
     'musicas/7.mp3',
     'musicas/8.mp3',
     'musicas/9.mp3',
-    'musicas/10.mp3'
+    'musicas/10.mp3',
 ];
-let musicaAtual = 0;
 
-function tocarMusica() {
-    audio.src = musicas[musicaAtual];
-    audio.play();
-    esconderTodasMusicas();
+let currentSongIndex = 0;
+
+function loadSong() {
+    audio.src = songs[currentSongIndex];
 }
 
-function esconderTodasMusicas() {
-    for (let i = 0; i < musicas.length; i++) {
-        if (i === musicaAtual) {
-            document.getElementById(`musica${i}`).hidden = false;
-        } else {
-            document.getElementById(`musica${i}`).hidden = true;
-        }
-    }
-}
-
-playButton.addEventListener('click', () => {
+function playPause() {
     if (audio.paused) {
         audio.play();
-        playButton.innerText = 'Pausar';
+        playPauseButton.textContent = 'Pause';
     } else {
         audio.pause();
-        playButton.innerText = 'Play';
+        playPauseButton.textContent = 'Play';
     }
-});
-
-prevButton.addEventListener('click', () => {
-    if (musicaAtual > 0) {
-        musicaAtual--;
-        tocarMusica();
-    }
-});
-
-nextButton.addEventListener('click', () => {
-    if (musicaAtual < musicas.length - 1) {
-        musicaAtual++;
-        tocarMusica();
-    }
-});
-
-// Adicione elementos de áudio para cada música
-for (let i = 0; i < musicas.length; i++) {
-    const audioElement = document.createElement('audio');
-    audioElement.src = musicas[i];
-    audioElement.id = `musica${i}`;
-    audioElement.hidden = true;
-    document.body.appendChild(audioElement);
 }
 
-tocarMusica();
+function playNext() {
+    currentSongIndex = (currentSongIndex + 1) % songs.length;
+    loadSong();
+    audio.play();
+}
+
+function playPrev() {
+    currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+    loadSong();
+    audio.play();
+}
+
+loadSong();
+
+playPauseButton.addEventListener('click', playPause);
+nextButton.addEventListener('click', playNext);
+prevButton.addEventListener('click', playPrev);
